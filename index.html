@@ -47,7 +47,12 @@
 
         /* Khi di chuột vào */
         .hover-effect:hover {
-            color: #FA701D; /* Đổi thành màu đỏ */
+            color: #FA701D; /* Đổi thành màu đỏ */ 
+        }
+        .hover-effect1:hover{
+            background: #FA701D;
+            object-fit: cover;
+            color: white;
         }
         .hidden {
     opacity: 0;
@@ -78,10 +83,52 @@
     transform: translateX(100%);
     opacity: 0;
 }
-	body {background-color: black; color: white;font-family: 'Roboto',sans-serif;}
+h1 {
+            font-size: 40px;
+            font-weight: bold;
+        }
+        .highlight {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .section {
+            margin-top: 30px;
+            padding: 15px;
+            background: whitesmoke;
+            border-left: 5px solid #000;
+        }
+        .section h2 {
+            background: black;
+            color: white;
+            display: inline-block;
+            padding: 5px 10px;
+            font-size: 20px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+	body {background-color: black; color: white;font-family: 'Helvetica Black',sans-serif;}
 	video {z-index: 9;position: static; width: 100vw;}
     button {background: transparent; border: none;}
+    .hide{
+            display: none;
+        }
+        .visible {
+            display: block;
+        }
 </style>
+ <script>
+        function updateSection() {
+            document.getElementById("section1").classList.replace("visible", "hide");
+            document.getElementById("section2").classList.replace("hide", "visible");
+        }
+
+        function restoreSection() {
+            document.getElementById("section1").classList.replace("hide", "visible");
+            document.getElementById("section2").classList.replace("visible", "hide");
+        }
+    </script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const elements = document.querySelectorAll(".hidden");
@@ -107,85 +154,122 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 <script>
 const contentList = [
-     { title: "", image: "Pictures/roles-img-CENTAUREISSI_b515a5dd68.png", description: "Một ”Doll” khiêm tốn nhưng chính trực. Cô ấy pha cà phê thơm ngon và là người bảo vệ kiên định của cà phê - cô ấy là tấm khiên không thể thay thế của ”Zucchore”",name: "Pictures/en-CENTAUREISSI_efc03fa10f.png",role: "Pictures/role-class-3_44f78c68d0.png"},
-     { title: "", image: "Pictures/roles-img-DUSHEVNAYA_94c83c6f53.png", description: "Một ”Doll” cực kỳ nhạy cảm đã mất đi các bản ghi thần kinh của mình, vẫn đang tìm kiếm quá khứ của mình, toàn tâm toàn ý để đáp ứng yêu cầu của người khác. Cách cô ấy thể hiện bản thân có thể vừa hơi cường điệu vừa thiếu chín chắn, thường khiến người khác bối rối. Thực ra, những cử chỉ này chỉ đơn giản là che giấu sự ngượng ngùng và bất an của chính cô ấy",name: "Pictures/en-DUSHEVNAYA_072bd8b214.png",role: "Pictures/role-class-3_44f78c68d0.png"},
-     { title: "", image: "Pictures/roles-img-DAIYAN_b5164b537f.png", description: "Một “Doll” dịu dàng và kín đáo, người đập đất bằng cây đàn guzheng của mình và những người bạn đồng hành ”Monsoon” . khi cô ấy chơi đàn, cô ấy gợi lên những ham muốn sâu sắc nhất được chôn giấu trong trái tim của người nghe - lắng nghe tất cả và ôm trọn tất cả",name: "Pictures/en-DAIYAN_e5bd8dda43.png",role: "Pictures/role-class-2_317c854072.png"},
+     { title: "", image: "Pictures/roles-img-CENTAUREISSI_b515a5dd68.png", description: "Một ”Doll” khiêm tốn nhưng chính trực. Cô ấy pha cà phê rất ngon và là người bảo vệ kiên định của cà phê - cô ấy là tấm khiên không thể thay thế của ”Zucchore”.",name: "Pictures/en-CENTAUREISSI_efc03fa10f.png",role: "Pictures/role-class-3_44f78c68d0.png"},
+     { title: "", image: "Pictures/roles-img-DUSHEVNAYA_94c83c6f53.png", description: "Một ”Doll” cực kỳ nhạy cảm đã mất đi các bản ghi thần kinh của mình, vẫn đang tìm kiếm quá khứ của mình, toàn tâm toàn ý để đáp ứng yêu cầu của người khác. Cách cô ấy thể hiện bản thân có thể vừa hơi cường điệu vừa thiếu chín chắn, thường khiến người khác bối rối. Thực ra, những cử chỉ này chỉ đơn giản là che giấu sự ngượng ngùng và bất an của chính cô ấy.",name: "Pictures/en-DUSHEVNAYA_072bd8b214.png",role: "Pictures/role-class-3_44f78c68d0.png"},
+     { title: "", image: "Pictures/roles-img-DAIYAN_b5164b537f.png", description: "Một “Doll” dịu dàng và kín đáo, người đập đất bằng cây đàn guzheng của mình và những người bạn đồng hành ”Monsoon” . khi cô ấy chơi đàn, cô ấy gợi lên những ham muốn sâu sắc nhất được chôn giấu trong trái tim của người nghe - lắng nghe tất cả và ôm trọn tất cả.",name: "Pictures/en-DAIYAN_e5bd8dda43.png",role: "Pictures/role-class-2_317c854072.png"},
       { title: "", image: "Pictures/roles-img-MAKIATTO_a5ec0490b5.png", description: "Một ”Doll” điềm tĩnh, kiêu hãnh nhưng vụng về, không giỏi thể hiện bản thân. Cô ấy thích những con vật nhỏ mềm mại và Macchiato ngọt quá mức. Luôn cô đơn, ánh mắt cô ấy thường vô định ở đâu đó. Khi nào cô ấy sẽ nhận được phản hồi mà cô ấy mong đợi từ lâu?”",name: "Pictures/en-MAKIATTO_314b1e9cb4.png",role: "Pictures/role-class-1_758633b0ed.png"},
        { title: "", image: "Pictures/roles-img-PAPASHA_26ca58e127.png", description: "Một “Doll“ ấm áp nhưng không biết nói “không“, cô ấy đã trở thành một người trợ giúp đa năng thông qua việc tự học để xử lý tốt hơn mọi yêu cầu. cô ấy sẵn sàng hy sinh mọi thứ để bảo vệ mọi người. khi bạn gặp khó khăn, hãy thoải mái dựa vào cô ấy - bất kể đó là gì, Papasha sẽ biến điều đó thành hiện thực.",name: "Pictures/en-PAPASHA_7fe20f6426.png",role: "Pictures/role-class-1_758633b0ed.png"},
+       
    ];
-let currentIndex = 0;
-
-function updateContent(direction) {
-    const titleEl = document.getElementById("title");
-    const imageEl = document.getElementById("image");
-    const descEl = document.getElementById("description");
-    const nameEl = document.getElementById("name");
-    const roleEl = document.getElementById("role");
-    
-    // Thêm hiệu ứng trượt ra
-    titleEl.classList.add("slide-out");
-    imageEl.classList.add("slide-out");
-    descEl.classList.add("slide-out");
-    nameEl.classList.add("slide-out");
-    roleEl.classList.add("slide-out");
-
-    setTimeout(() => {
-        // Cập nhật nội dung
-        titleEl.innerText = contentList[currentIndex].title;
-        imageEl.src = contentList[currentIndex].image;
-        descEl.innerText = contentList[currentIndex].description;
-        nameEl.src = contentList[currentIndex].name;
-        roleEl.src = contentList[currentIndex].role;
+const newContentList = [
+        { img: "Pictures/main-img-0_16845a0373.png", nd: "Phương tiện của “Chỉ huy“ dùng để điều hành chiến dịch. Ban đầu là tài sản của Griffin, “Chỉ huy“ đã lấy nó sau khi rời Griffin để sử dụng làm phương tiện di chuyển trong khu vực ô nhiễm. Elmo có sức chứa lớn và cấu trúc phức tạp, có nhiều không gian chức năng như phòng điều hành, phòng máy, phòng lắp ráp, kho, khoang chứa đồ và ngoài ra còn có không gian giải trí như ký túc xá để nâng cao sức khỏe cho phi hành đoàn Elmo.", tg: "Pictures/name-en-0_e86ab3df62.png" },
+        { img: "Pictures/main-img-1_de62885db0.png", nd: "Được biết đến chính thức với tên gọi Hệ thống xe lửa khử nhiễm và thanh lọc đa chức năng tự hành, nó có nguồn gốc từ các đoàn tàu bọc thép liên lục địa của quân đội. Đây là một trong những cơ sở chính được sử dụng để thực hiện Dự án thanh lọc.Khi mở rộng hoàn toàn, Đường sắt Vạn Lý Trường Thành cao khoảng 40 mét và hoạt động như một bức tường chắn di động với hệ thống đường ray để di chuyển. Để khử nhiễm các khu vực bị cô lập, Đường sắt Vạn Lý Trường Thành phải hoạt động cùng với các tháp thanh lọc di động vì nó không có khả năng tự thanh lọc bức xạ Collapse.", tg: "Pictures/name-en-1_81aaf01055.png" },
+        { img: "Pictures/main-img-2_f40f734a18.png", nd:"Khi các hạt Collapse giải phóng bức xạ Collapse, các vật liệu mà chúng tiếp xúc sẽ được đồng hóa và sau đó lắng đọng thành các tinh thể giống như silicon. Khi không có tác động từ bên ngoài, tinh thể Collapse thường xuất hiện dưới dạng các cụm giống tinh thể. Sau khi loại bỏ bức xạ Collapse bằng công nghệ tinh chế. Những vật liệu giống silicon này không còn bị ảnh hưởng bởi bức xạ sụp đổ và có khả năng chống chịu hoàn toàn với bức xạ này. Bằng cách sử dụng các sản phẩm làm từ tinh thể Collapse này, con người có thể sống sót trong điều kiện nồng độ bức xạ Collapse cao.", tg:"Pictures/name-en-2_ac2cae25a2.png"},
+         { img: "Pictures/main-img-3_e874d206a7.png", nd:"Được chuyển đổi từ một số loại cây dây leo và cây thân thảo sau khi chúng bị nhiễm ELID, mặc dù xác suất chuyển đổi tương đối thấp. Collapse Epiphyllums chủ yếu mọc ở những vùng trũng, tạo thành các cụm cây rộng, liên tục và đồng nhất. Khi Collapse Epiphyllums không trong thời kỳ ra hoa, mức độ bức xạ trong khu vực sinh trưởng của chúng thấp hơn đáng kể so với môi trường xung quanh, nhưng trong thời kỳ ra hoa, mức độ bức xạ tăng mạnh. Mặc dù loài của chúng có thể khác nhau, tất cả các loài thực vật như vậy trong cùng một khu vực đều có cùng thời kỳ ra hoa, rất ngắn. Vì chúng có thời kỳ ra hoa ngắn chung, nên những loài thực vật này được gọi là Collapse Epiphyllums.", tg:"Pictures/name-en-3_c5c6240088.png"},
+    ];
 
 
+    let currentIndex = 0;
+    let newIndex = 0;
 
-        // Đổi hướng hiệu ứng trượt vào
-        titleEl.classList.remove("slide-out");
-        imageEl.classList.remove("slide-out");
-        descEl.classList.remove("slide-out");
-         nameEl.classList.remove("slide-out");
-         roleEl.classList.remove("slide-out");
-
-
-        titleEl.classList.add("slide-in");
-        imageEl.classList.add("slide-in");
-        descEl.classList.add("slide-in");
-        nameEl.classList.add("slide-in");
-        roleEl.classList.add("slide-in");
+    function updateContent(list, index, elements) {
+        const { titleEl, imageEl, descEl, nameEl, roleEl } = elements;
+        
+        // Thêm hiệu ứng trượt ra
+        titleEl.classList.add("slide-out");
+        imageEl.classList.add("slide-out");
+        descEl.classList.add("slide-out");
+        nameEl.classList.add("slide-out");
+        roleEl.classList.add("slide-out");
 
         setTimeout(() => {
-            titleEl.classList.remove("slide-in");
-            imageEl.classList.remove("slide-in");
-            descEl.classList.remove("slide-in");
-            nameEl.classList.remove("slide-in");
-            roleEl.classList.remove("slide-in");
+            // Cập nhật nội dung
+            titleEl.innerText = list[index].title || "";
+            imageEl.src = list[index].image || list[index].img;
+            descEl.innerText = list[index].description || list[index].nd;
+            nameEl.src = list[index].name || list[index].tg;
+            roleEl.src = list[index].role || "";
 
-            titleEl.classList.add("show");
-            imageEl.classList.add("show");
-            descEl.classList.add("show");
-            nameEl.classList.add("show");
-            roleEl.classList.add("show");
-        }, 50);
+            // Đổi hướng hiệu ứng trượt vào
+            titleEl.classList.remove("slide-out");
+            imageEl.classList.remove("slide-out");
+            descEl.classList.remove("slide-out");
+            nameEl.classList.remove("slide-out");
+            roleEl.classList.remove("slide-out");
 
-    }, 500);
-}
+            titleEl.classList.add("slide-in");
+            imageEl.classList.add("slide-in");
+            descEl.classList.add("slide-in");
+            nameEl.classList.add("slide-in");
+            roleEl.classList.add("slide-in");
 
-function prevContent() {
-    currentIndex = (currentIndex - 1 + contentList.length) % contentList.length;
-    updateContent("left");
-}
+            setTimeout(() => {
+                titleEl.classList.remove("slide-in");
+                imageEl.classList.remove("slide-in");
+                descEl.classList.remove("slide-in");
+                nameEl.classList.remove("slide-in");
+                roleEl.classList.remove("slide-in");
 
-function nextContent() {
-    currentIndex = (currentIndex + 1) % contentList.length;
-    updateContent("right");
-}
+                titleEl.classList.add("show");
+                imageEl.classList.add("show");
+                descEl.classList.add("show");
+                nameEl.classList.add("show");
+                roleEl.classList.add("show");
+            }, 50);
+
+        }, 500);
+    }
+
+    function prevContent() {
+        currentIndex = (currentIndex - 1 + contentList.length) % contentList.length;
+        updateContent(contentList, currentIndex, {
+            titleEl: document.getElementById("title"),
+            imageEl: document.getElementById("image"),
+            descEl: document.getElementById("description"),
+            nameEl: document.getElementById("name"),
+            roleEl: document.getElementById("role"),
+        });
+    }
+
+    function nextContent() {
+        currentIndex = (currentIndex + 1) % contentList.length;
+        updateContent(contentList, currentIndex, {
+            titleEl: document.getElementById("title"),
+            imageEl: document.getElementById("image"),
+            descEl: document.getElementById("description"),
+            nameEl: document.getElementById("name"),
+            roleEl: document.getElementById("role"),
+        });
+    }
+
+    function prevNewContent() {
+        newIndex = (newIndex - 1 + newContentList.length) % newContentList.length;
+        updateContent(newContentList, newIndex, {
+            titleEl: document.getElementById("title"),
+            imageEl: document.getElementById("img"),
+            descEl: document.getElementById("nd"),
+            nameEl: document.getElementById("tg"),
+            roleEl: document.getElementById("role"),
+        });
+    }
+
+    function nextNewContent() {
+        newIndex = (newIndex + 1) % newContentList.length;
+        updateContent(newContentList, newIndex, {
+            titleEl: document.getElementById("title"),
+            imageEl: document.getElementById("img"),
+            descEl: document.getElementById("nd"),
+            nameEl: document.getElementById("tg"),
+            roleEl: document.getElementById("role"),
+        });
+    }
 </script>
+
 <body>
 	 <header> <img style="vertical-align: top; height:3rem;width: auto;" src="Pictures/logo.png" alt="logo">
      <p class="animated-underline"><a style="text-decoration: none;" class="hover-effect" href="index.html"> Trang chủ </a></p>
      <p class="animated-underline"><a style="text-decoration: none;" class="hover-effect" href="#DSNV"> Nhân vật </a></p>
-      <p class="animated-underline"><a style="text-decoration: none;" class="hover-effect" href="#DSNV"> Cốt truyện</a></p>
-    <p class="animated-underline"><a style="text-decoration: none;" class="hover-effect" href="index.html"> Thông báo </a></p>
+      <p class="animated-underline"><a style="text-decoration: none;" class="hover-effect" href="#section1"> Cốt truyện</a></p>
      </header>
      <div>
 	 <video id="videoPlayer" style="margin: unset;filter: brightness(0.8);" autoplay loop muted playsinline height="100%" width="100%">
@@ -203,7 +287,7 @@ function nextContent() {
     <img class="hidden" style="right: 75px; top: 1075px; width: auto;height: 42px;width: auto;transition: all 1.2s ease-out" src="Pictures/exilium2_4ef9e21d26.png"> 
      <img class="hidden" style="right: 84px; top: 1110px; width: auto;height: 28px;width: auto;transition: all 1.2s ease-out" src="Pictures/exilium3_c95c796164.png">  
      <button class="hidden" style="right:84px;height: 13px;width:auto;bottom: -400px;">
-        <a style="font-size: 20px;color: black; font-weight:bold; transition: all 1.2s ease-out" href="test.html"><img  src="Pictures/role_a45f9e5f3f.png"></a>
+        <a style="font-size: 20px;color: black; font-weight:bold; transition: all 1.2s ease-out; text-decoration: none;" href="test.html">GIỚI THIỆU NHÂN VẬT</a>
         </button>   
 </div>
 <div id="DSNV" style="height:675px;width:100vw;background-image: url(Pictures/Needs.png);">
@@ -216,12 +300,61 @@ function nextContent() {
    class="hidden" id="description">
    Một "Doll" khiêm tốn nhưng chính trực. Cô ấy pha cà phê thơm ngon và là người bảo vệ kiên định của cà phê. Cô ấy là tấm khiên không thể thay thế của "Zucchore".
 </p>
-    <button style="left:140px; top: 1800px;position: absolute; z-index: 13; background-color: white;" class="animated-underline"><a href="test.html"><img src="Pictures/role-see-more_16563949d4.png"></a></button>
-    <button style="left:10px; bottom: -800px;position: absolute; z-index: 13;height: 68px;" onclick="prevContent()"><img src="Pictures/button-prev-active_860f52dc41.png"></button>
-     <button style="right:10px; bottom: -800px;position: absolute; z-index: 13;height: 68px;" onclick="nextContent()"><img src="Pictures/button-next-active_def4e59a67.png"></button>   
+    <button style="left:10px; top: 1550px;position: absolute; z-index: 13;height: 68px;" onclick="prevContent()"><img src="Pictures/button-prev-active_860f52dc41.png"></button>
+     <button style="right:10px; top: 1550px;position: absolute; z-index: 13;height: 68px;" onclick="nextContent()"><img src="Pictures/button-next-active_def4e59a67.png"></button>   
      <div id="title"></div>
 </div>
-<div style="height:400px;width: 100vw; background-color: white;">
+ <button class="hover-effect1" style="left:50px; top: 1950px;position: absolute; z-index: 13;font-size: 20px;font-weight: bold;"onclick="restoreSection()"><a class="animated-underline">[THẾ GIỚI]</a></button>
+ <button class="hover-effect1" style="left:250px; top: 1950px;position: absolute; z-index: 13;font-size: 20px;font-weight: bold;"onclick="updateSection()"><a class="animated-underline">[TỪ KHÓA]</a></button>   
+ <div id="section1" class="visible" style="height:755px;width: 100vw; background-color: whitesmoke;color: black;">
+        <div class="hidden" style=" left: 50px;top:2000px;z-index: 13;">
+            <h1>Năm 2064</h1>
+    <p class="highlight"> Tập đoàn quân sự tư nhân Griffin đang chuẩn bị giải thể và tái tổ chức.<br>URNC chính thức được thành lập...</p>
+     </div>
+    <div class="hidden" style="left: 50px;top: 2175px;">
+        <a class="section">
+        <h2>B.R.I.E.F.</h2>
+        <p style="width: 650px;white-space: normal;"> Tổ chức vì lợi nhuận này điều phối những thợ săn tiền thưởng hoạt động trong các khu vực ô nhiễm và quản lý việc phân bổ nguồn lực trên quy mô lớn. Tên đầy đủ của tổ chức là  <strong>"Liên đoàn Mở rộng Quyền Lợi Thợ Săn Tiền Thưởng"</strong> và chủ tịch hiện tại của tổ chức là <strong>Easley</strong>.
+         <br>
+        Sau khi thành lập URNC, một số lượng lớn thợ săn tiền thưởng đã xuất hiện, chủ yếu là do sự giải tán hàng loạt hoặc tái tổ chức của PMCS. Trong bối cảnh này, BRIEF. đã dần mở rộng và hiện đã trở thành cơ quan quản lý cao nhất trên thực tế đối với thợ săn tiền thưởng. Tuy nhiên, BRIEF. không trực tiếp quản lý thợ săn tiền thưởng, thay vào đó, họ chia sẻ mối quan hệ cộng sinh có lợi cho cả hai bên.
+          <br>
+        Thợ săn tiền thưởng đã đăng ký với BRIEF có thể chấp nhận hoa hồng thông qua nền tảng của mình, trong khi BRIEF tính phí dịch vụ để duy trì hoạt động.
+             <br>
+        Nhờ quy trình xét duyệt hoa hồng tương đối chính thức, nền tảng hoa hồng an toàn và nguồn hoa hồng dồi dào, BRIEF. vẫn được phần lớn thợ săn tiền thưởng chấp nhận và chào đón rộng rãi, bất chấp mức phí mà nó tính.
+        </p>
+    </a>
+    </div>
+
+    <div class="hidden" style="right: 50px; top: 2175px">
+        <a class="section">
+        <h2>ELID</h2>
+        <p style="width: 650px;white-space: normal;"> Các loài động vật đã trải qua những đột biến nghiêm trọng do tiếp xúc quá nhiều với bức xạ Collapse, dẫn đến Bệnh truyền nhiễm phát xạ thấp Eurosky (ELID), được gọi chung là ELID. Tùy thuộc vào nguồn gốc biến đổi của chúng, ELID biểu hiện các kiểu hành vi khác nhau, nhưng nhìn chung có chung đặc điểm hung hăng và xu hướng bạo lực. Do đó, ELID đã trở thành nguồn bất ổn chính trong các khu vực ô nhiễm, gây ra cái chết của vô số nhà môi giới ngầm và thợ săn tiền thưởng Khi tình hình toàn cầu dần ổn định, nghiên cứu về ELID vẫn tiếp tục.
+        <br>
+        Dữ liệu hiện tại cho thấy sự tồn tại của một loại ELID cực kỳ nguy hiểm, thường biểu hiện nhiều đặc điểm sinh học. Do thông tin không đầy đủ, nguồn gốc và nguyên nhân của các ELID này vẫn chưa rõ ràng. Để phân biệt chúng với các ELID thông thường, các học giả đã gọi chung chúng là<strong>"Boojum"</strong>.
+        </p>
+    </a>
+</div>
+</div>
+<div id="section2" class="hide" style="height:755px;width: 100vw; background-color: whitesmoke;color: black;">
+    <img id="tg" style="right: 1px; top:2085px" class="hidden" src="Pictures/name-en-0_e86ab3df62.png">
+    <img id="img" style="height:755px ;width:auto ;" class="hidden" src="Pictures/main-img-0_16845a0373.png">
+    <div class="hidden" style="right: 50px; top: 2175px">
+        <a class="s">
+        <p id="nd" class="hidden" style="width: 650px;white-space: normal;right: 10px; width: 400px;top:20px"> Phương tiện của "Chỉ huy" dùng để điều hành chiến dịch.
+         Ban đầu là tài sản của Griffin, "Chỉ huy" đã lấy nó sau khi rời Griffin để sử dụng làm phương tiện di chuyển trong khu vực ô nhiễm.
+         Elmo có sức chứa lớn và cấu trúc phức tạp, có nhiều không gian chức năng như phòng điều hành, phòng máy, phòng lắp ráp, kho, khoang chứa đồ và ngoài ra còn có không gian giải trí như ký túc xá để nâng cao sức khỏe cho phi hành đoàn Elmo.
+        </p>
+    </a>
+    <button style="top:350px; right:35px; border: 1px solid black;" class="hidden" onclick="prevNewContent()"><</button>
+    <button style="top:350px; right:10px; border: 1px solid black;" class="hidden" onclick="nextNewContent()">></button>
+</div>
+</div>
+<div style="height: 300px; background-image: url(Pictures/banner1.png);">
+    <p class="hidden" style="top: 2750px; color: black;left: 520px; text-align: center;">
+    -Trang được tạo bởi: Nhóm Ngũ Link<br>
+    -Gồm: Chiến, Hoàng, Nhựt, An, Khang <br>
+    -Nguồn:<a style="text-decoration:none; color:#FA701D" href="https://gf2exilium.sunborngame.com/main">https://gf2exilium.sunborngame.com/main</a>
+    </p>
 </div>
 </body>
 </html>
